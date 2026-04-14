@@ -38,8 +38,12 @@ body {
 
   position: relative;
 
-  background-image: url("img/Снимок экрана 2026-04-06 015839.png");
-  background-size: cover;
+
+
+
+background-image: url("./img/Снимок экрана 2026-04-06 015839.png");
+
+background-size: cover;
   background-position: center;
 }
 
@@ -104,24 +108,33 @@ body {
 .section1 {
   min-height: 100vh;
   padding: 50px;
- background-image: url("img/Снимок экрана 2026-04-06 0200228.png");
-  background-size: cover;
+
+background-image: url("./img/Снимок экрана 2026-04-06 0200228.png");
+
+background-size: cover;
 }.section2 {
-  min-height: 100vh;
-  padding: 50px;
- background-image: url("img/Снимок экрана 2026-04-06 0220817.png");
+   min-height: 100vh;
+   padding: 50px;
+
+
+ background-image: url("./img/Снимок экрана 2026-04-06 0220817.png");
+
+ background-size: cover;
+ }.section4 {
+    min-height: 100vh;
+    padding: 50px;
+
+  background-image: url("./img/Снимок экрана 20266-04-06 021145.png");
+
   background-size: cover;
-}.section4 {
-  min-height: 100vh;
-  padding: 50px;
- background-image: url("img/Снимок экрана 20266-04-06 021145.png");
-  background-size: cover;
-}.section3 {
-  min-height: 100vh;
-  padding: 50px;
- background-image: url("img/Снимок экрана 2026-04-06 0216455.png");
-  background-size: cover;
-}
+  }.section3 {
+     min-height: 100vh;
+     padding: 50px;
+
+   background-image: url("./img/Снимок экрана 2026-04-06 0216455.png");
+
+   background-size: cover;
+   }
 
 
 .container {
@@ -163,9 +176,9 @@ body {
 
 
 .timer {
-  font-size: 28px;
+  font-size: 36px;
   font-weight: bold;
-  color: red;
+  color: goldenrod;
 }
 
 .hearts {
@@ -317,7 +330,7 @@ body {
   50% { transform: scale(1.2); }
   100% { transform: scale(1); }
 }
-.teleg, .ins{
+.teleg, .ins, .face{
   width: 50px;
   height: 50px;
   cursor: pointer;

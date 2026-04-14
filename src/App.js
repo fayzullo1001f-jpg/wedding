@@ -10,29 +10,24 @@ function App() {
     const [timeLeft, setTimeLeft] = useState("");
     const [showMap, setShowMap] = useState(false);
     const [musicStarted, setMusicStarted] = useState(false);
-    const [isPlaying, setIsPlaying] = useState(false);
 
     const audioRef = useRef(null);
-    const sectionRef = useRef(null);
     const sectionsRef = useRef([]);
 
     const weddingDate = new Date(2026, 4, 1, 18, 0, 0).getTime();
 
-    // 🎵 SAFE MUSIC START
     const startMusic = async () => {
         const audio = audioRef.current;
         if (!audio || musicStarted) return;
 
         try {
             await audio.play();
-            setIsPlaying(true);
             setMusicStarted(true);
         } catch (err) {
             console.log("Music blocked");
         }
     };
 
-    // 🎵 CLICK / SCROLL = MUSIC START
     useEffect(() => {
         const handleStart = () => startMusic();
 
@@ -45,7 +40,6 @@ function App() {
         };
     }, [musicStarted]);
 
-    // ⏳ COUNTDOWN + AUTO SCROLL
     useEffect(() => {
         const interval = setInterval(() => {
             const now = new Date().getTime();
@@ -66,11 +60,9 @@ function App() {
             }
         }, 1000);
 
-
         return () => clearInterval(interval);
     }, []);
 
-    // 👁 SCROLL ANIMATION + MAP
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
@@ -94,27 +86,6 @@ function App() {
         return () => observer.disconnect();
     }, []);
 
-    // 🔇 TAB CHANGE CONTROL
-    useEffect(() => {
-        const audio = audioRef.current;
-
-        const handleVisibility = () => {
-            if (!audio) return;
-
-            if (document.hidden) {
-                audio.pause();
-                setIsPlaying(false);
-            } else if (musicStarted) {
-                audio.play().then(() => setIsPlaying(true)).catch(() => {});
-            }
-        };
-
-        document.addEventListener("visibilitychange", handleVisibility);
-
-        return () =>
-            document.removeEventListener("visibilitychange", handleVisibility);
-    }, [musicStarted]);
-
     return (
         <>
             {/* HEADER */}
@@ -126,7 +97,6 @@ function App() {
                     <h1 className="name_woman">MARJONA</h1>
                     <h1 className="name_date">01.05.2026</h1>
 
-                    {/* 🎵 AUDIO */}
                     <audio ref={audioRef} loop>
                         <source src={musicFile} type="audio/mp3" />
                     </audio>
@@ -134,66 +104,44 @@ function App() {
             </header>
 
             {/* SECTION 1 */}
-            <section className="section section1" ref={sectionRef}>
-                <div
-                    className="container hidden"
-                    data-index="0"
-                    ref={(el) => (sectionsRef.current[0] = el)}
-                >
+            <section className="section section1">
+                <div className="container hidden" data-index="0" ref={(el) => (sectionsRef.current[0] = el)}>
                     <h2>💍 TO'Y TAKLIFNOMASI</h2>
 
                     <p>
-                        Assalomu alaykum <br />
-                        Hurmatli mehmonimiz! <br /><br />
-                        Sizni farzandlarimiz <br />
-                        Shaxzodjon va Marjonaning <br />
-                        nikoh to‘ylariga taklif etamiz 💖 <br /><br />
-                        “Visol oqshomi” 2026-yil <br />
-                        1-may kuni soat 18:00 da <br /><br />
-                        Hurmat ila <br />
-                        Zokirjonovlar oilasi
+                        Assalomu alaykum! Hurmatli va aziz mehmonimiz 💖<br /><br />
+                        Sizni hayotimizning eng baxtli kunlaridan biri — farzandlarimizning
+                        nikoh to‘y marosimiga chin qalbimizdan taklif etamiz.<br /><br />
+                        Sizning ishtirokingiz ushbu quvonchli kunimizni yanada yorqin va unutilmas qiladi.
+                        Birga quvonch ulashishni intiqlik bilan kutamiz ✨
                     </p>
 
-                    <h3>📅 1-May, 2026 | ⏰ 18:00</h3>
-
-                    <h3>⏳ Boshlanishiga:</h3>
-                    <div className="timer">{timeLeft}</div>
+                    <h3 className="timer">⏳ {timeLeft}</h3>
                 </div>
             </section>
 
             {/* SECTION 2 */}
             <section className="section section2">
-                <div
-                    className="container hidden"
-                    data-index="1"
-                    ref={(el) => (sectionsRef.current[1] = el)}
-                >
+                <div className="container hidden" data-index="1" ref={(el) => (sectionsRef.current[1] = el)}>
                     <h2>📍 Manzil</h2>
-                    <p>Toshkent shahri, Grand Hall</p>
 
-                    <div className={`map ${showMap ? "show" : ""}`}>
-                        {showMap && (
-                            <iframe
-                                title="map"
-                                src="https://www.google.com/maps?q=Grand%20Hall%20Tashkent&output=embed"
-                                width="100%"
-                                height="300"
-                                loading="lazy"
-                            ></iframe>
-                        )}
-                    </div>
+                    {showMap && (
+                        <iframe
+                            title="map"
+                            src="https://www.google.com/maps?q=Grand%20Hall%20Tashkent&output=embed"
+                            width="100%"
+                            height="300"
+                        />
+                    )}
                 </div>
             </section>
-            <section className="section section4">
 
-            </section>
+            {/* SECTION 4 (bo‘sh qoldirildi) */}
+            <section className="section section4"></section>
+
             {/* SECTION 3 */}
             <section className="section section3">
-                <div
-                    className="container hidden"
-                    data-index="2"
-                    ref={(el) => (sectionsRef.current[2] = el)}
-                >
+                <div className="container hidden" data-index="2" ref={(el) => (sectionsRef.current[2] = el)}>
                     <h2>❤️ Sizni kutamiz</h2>
                     <h2>Murojat: +998-99-123-45-67</h2>
                     <h2>Manzil: Grand Hall restaurant</h2>
