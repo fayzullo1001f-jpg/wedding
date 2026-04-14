@@ -1,0 +1,351 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;  /* faqat gorizontal scroll yo‘q */
+}
+
+/* scroll barni yashirish */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  -ms-overflow-style: none;  /* IE */
+  scrollbar-width: none;      /* Firefox */
+}
+body {
+  margin: 0;
+  font-family: sans-serif;
+
+  background-size: cover;
+  background-position: center;
+
+  background-attachment: fixed;
+}
+
+
+.intro {
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+
+  position: relative;
+
+  background-image: url("img/Снимок экрана 2026-04-06 015839.png");
+  background-size: cover;
+  background-position: center;
+}
+
+
+.name_wedding {
+  width: 350px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+.name_wed,
+.name_we,
+.name_date {
+  color: gold;
+  opacity: 0;
+  font-family: "Great Vibes", cursive;
+}
+
+.name_men,
+.class_name,
+.name_woman {
+  color: blueviolet;
+  opacity: 0;
+  animation: dropDown 1.5s forwards;
+  font-family: "Great Vibes", cursive;
+}
+.name_men { animation-delay: 0.3s; }
+.class_name { animation-delay: 0.8s; }
+.name_woman { animation-delay: 1.3s; }
+
+
+.name_wed,
+.name_we {
+  animation: slideFromLeft 1.5s forwards;
+  animation-delay: 1.8s;
+}
+
+
+.name_date {
+  animation: slideFromRight 1.5s forwards;
+  animation-delay: 2.3s;
+}
+
+@keyframes dropDown {
+  from { transform: translateY(-200px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideFromLeft {
+  from { transform: translateX(-300px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideFromRight {
+  from { transform: translateX(300px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+
+.section1 {
+  min-height: 100vh;
+  padding: 50px;
+ background-image: url("img/Снимок экрана 2026-04-06 0200228.png");
+  background-size: cover;
+}.section2 {
+  min-height: 100vh;
+  padding: 50px;
+ background-image: url("img/Снимок экрана 2026-04-06 0220817.png");
+  background-size: cover;
+}.section4 {
+  min-height: 100vh;
+  padding: 50px;
+ background-image: url("img/Снимок экрана 20266-04-06 021145.png");
+  background-size: cover;
+}.section3 {
+  min-height: 100vh;
+  padding: 50px;
+ background-image: url("img/Снимок экрана 2026-04-06 0216455.png");
+  background-size: cover;
+}
+
+
+.container {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 50px;
+
+  border-radius: 25px;
+
+  color: blue;
+  text-align: center;
+
+  position: relative;
+}
+
+.container p {
+  font-family: "Playfair Display", serif;;
+}
+.container h1 {
+  font-family: "Great Vibes", cursive;
+}
+
+
+.container::before {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  border-radius: 30px;
+
+}
+
+.container::after {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border-radius: 20px;
+
+}
+
+
+.timer {
+  font-size: 28px;
+  font-weight: bold;
+  color: red;
+}
+
+.hearts {
+  margin-top: 20px;
+  font-size: 24px;
+  animation: float 2s infinite alternate;
+}
+
+@keyframes float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-10px); }
+}
+
+.header {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro {
+  text-align: center;
+}
+
+.name_wed,
+.name_men,
+.class_name,
+.name_woman,
+.name_date {
+  font-family: "Great Vibes", cursive;
+  color: #6a1b9a;
+  margin: 10px 0;
+  animation: fadeUp 2s ease forwards;
+  opacity: 0;
+}
+
+.name_men { animation-delay: 0.5s; }
+.class_name { animation-delay: 1s; }
+.name_woman { animation-delay: 1.5s; }
+.name_date { animation-delay: 2s; }
+
+@keyframes fadeUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.container {
+  max-width: 450px;
+  width: 100%;
+  max-height: 450px;
+  padding: 40px;
+  border-radius: 20px;
+
+  color: blue;
+  text-align: center;
+
+}
+
+
+.timer {
+  font-size: 24px;
+  color: #ff0000;
+  font-weight: bold;
+}
+
+
+.map {
+  margin-top: 15px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.hearts {
+  font-size: 30px;
+  margin-top: 20px;
+  animation: float 2s infinite alternate;
+}
+
+@keyframes float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-10px); }
+}
+.hidden {
+  opacity: 0;
+  transform: translateY(80px);
+  transition: all 1s ease;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.header {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: zoomIn 2s ease;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.container {
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.container:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 30px rgba(0,0,0,0.4);
+}
+
+
+.hearts {
+  font-size: 30px;
+  animation: float 2s infinite alternate, pulse 1.5s infinite;
+}
+
+@keyframes float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+.teleg, .ins{
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+.map {
+  margin-top: 15px;
+  border-radius: 15px;
+  overflow: hidden;
+
+  opacity: 0;
+  transform: scale(0.9);
+  transition: 0.8s;
+}
+
+.map.show {
+  opacity: 1;
+  transform: scale(1);
+}
+@media (max-width: 768px) {
+  .name_wed {
+    font-size: 28px;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  .timer {
+    font-size: 18px;
+  }
+}
